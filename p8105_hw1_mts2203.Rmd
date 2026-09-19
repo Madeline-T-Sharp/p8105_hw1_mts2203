@@ -1,0 +1,30 @@
+---
+title: "p8105_hw1_mts2203"
+author: "Madeline Sharp"
+date: "2026-09-19"
+output: github_document
+---
+
+# Problem 0
+``` {r load_libraries, message = F}
+library(tidyverse)
+```
+
+
+# Problem 1
+
+``` {r load_penguins, message = F}
+data("penguins", package = "palmerpenguins")
+penguins
+``` 
+
+The `palmerpenguin` dataset `penguins` presents a list of `r nrow(penguins)` penguins that are categorized by `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_ (grams)_g`, `sex` and `year`. The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. The penguin's mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
+
+``` {r penguins_problems, message = F}
+scatterplot_penguins = ggplot(
+  data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+scatterplot_penguins 
+
+ggsave("scatterplot_penguins.pdf", height = 4, width = 6)
+```
