@@ -17,7 +17,6 @@ library(tidyverse)
 ```
 
 
-
 # Problem 1: Coding and Plotting Penguins Dataset
 
 ## Loading and Printing Data
@@ -32,11 +31,9 @@ penguins
 
 ``` 
 
-
 ## Short Description
 
 The `palmerpenguin` dataset `penguins` presents a list of `r nrow(penguins)` penguins that are categorized by `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_ (grams)_g`, `sex` and `year`. The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. The penguin's mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
-
 
 ## Creating Scatterplot
 
@@ -52,7 +49,6 @@ scatterplot_penguins
 ggsave("scatterplot_penguins.pdf", height = 4, width = 6)
 
 ```
-
 
 
 # Problem 2: Variable Types and Coercion
@@ -75,14 +71,12 @@ plot_df
 
 ```
 
-
 ## Calculating Dataframe Vector Means
 
 * The vec_num mean is: `r mean(pull(plot_df, vec_num))`. 
 * The vec_log mean is: `r mean(pull(plot_df, vec_log))`.
 * The vec_char mean is: `r mean(pull(plot_df, vec_char))`.
 * The vec_fact mean is: `r mean(pull(plot_df, vec_fact))`.
-
 
 ## Explaining Mean Results
 
