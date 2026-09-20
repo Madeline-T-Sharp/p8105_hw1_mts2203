@@ -6,25 +6,84 @@ output: github_document
 ---
 
 # Problem 0
-``` {r load_libraries, message = F}
+
+## Loading Libraries
+
+``` {r load_libraries, message = F}  
+
+# loading tidyverse library
 library(tidyverse)
+
 ```
 
 
-# Problem 1
+
+# Problem 1: Coding and Plotting Penguins Dataset
+
+## Loading and Printing Data
 
 ``` {r load_penguins, message = F}
+
+# loading penguins dataset from palmerpenguins package
 data("penguins", package = "palmerpenguins")
+
+# printing penguins dataset
 penguins
+
 ``` 
+
+
+## Short Description
 
 The `palmerpenguin` dataset `penguins` presents a list of `r nrow(penguins)` penguins that are categorized by `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_ (grams)_g`, `sex` and `year`. The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. The penguin's mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 
-``` {r penguins_problems, message = F}
-scatterplot_penguins = ggplot(
-  data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 
+## Creating Scatterplot
+
+``` {r penguins_problem, message = F}
+
+# defining scatterplot of flipper_length_mm vs. bill_length_mm using penguins data
+scatterplot_penguins = ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() 
+
+# prining scatterplot
 scatterplot_penguins 
 
+# creating and saving scatterplot as a pdf
 ggsave("scatterplot_penguins.pdf", height = 4, width = 6)
+
 ```
+
+
+
+# Problem 2: Variable Types and Coercion
+
+## Defining and Printing Dataframe
+
+```  {r df_and_scatterplot_problem, message = F}
+
+# defining dataframe containing numeric, logical, character and factor vectors
+plot_df =
+  tibble(
+    vec_num = rnorm(n = 10),
+    vec_log = vec_num > 0,
+    vec_char = c("This", "is","my", "first", "homework", "assignment", "for", "Data", "Science", "1"),
+    vec_fact = factor(c("YES", "NO","MAYBE", "YES", "NO", "MAYBE", "YES", "NO", "MAYBE", "YES"))
+  )
+
+# printing dataframe containing numeric, logical, character and factor vectors
+plot_df
+
+```
+
+
+## Calculating Dataframe Vector Means
+
+* The vec_num mean is: `r mean(pull(plot_df, vec_num))`. 
+* The vec_log mean is: `r mean(pull(plot_df, vec_log))`.
+* The vec_char mean is: `r mean(pull(plot_df, vec_char))`.
+* The vec_fact mean is: `r mean(pull(plot_df, vec_fact))`.
+
+
+## Explaining Mean Results
+
+Finding the mean is a numerical operation, therefore the vector variables of character and factor data types should not and do not produce means. However, the numerical and logical vector variables should and do generate means. Logical vectors are stores as 1 for "TRUE" and 0 for "FALSE", hence why they can be averaged numerically.
