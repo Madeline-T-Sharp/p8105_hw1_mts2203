@@ -58,7 +58,7 @@ ggsave("scatterplot_penguins.pdf", height = 4, width = 6)
 ```  {r df_and_scatterplot_problem, message = F}
 
 # defining dataframe containing numeric, logical, character and factor vectors
-plot_df =
+vec_dt_df =
   tibble(
     vec_num = rnorm(n = 10),
     vec_log = vec_num > 0,
@@ -67,16 +67,16 @@ plot_df =
   )
 
 # printing dataframe containing numeric, logical, character and factor vectors
-plot_df
+vec_dt_df
 
 ```
 
 ## Calculating Dataframe Vector Means
 
-* The vec_num mean is: `r mean(pull(plot_df, vec_num))`. 
-* The vec_log mean is: `r mean(pull(plot_df, vec_log))`.
-* The vec_char mean is: `r mean(pull(plot_df, vec_char))`.
-* The vec_fact mean is: `r mean(pull(plot_df, vec_fact))`.
+* The vec_num mean is: `r mean(pull(vec_dt_df, vec_num))`. 
+* The vec_log mean is: `r mean(pull(vec_dt_df, vec_log))`.
+* The vec_char mean is: `r mean(pull(vec_dt_df, vec_char))`.
+* The vec_fact mean is: `r mean(pull(vec_dt_df, vec_fact))`.
 
 ## Explaining Mean Results
 
