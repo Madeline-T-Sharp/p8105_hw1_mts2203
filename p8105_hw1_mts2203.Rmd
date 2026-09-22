@@ -80,4 +80,4 @@ vec_dt_df
 
 ## Explaining Mean Results
 
-Finding the mean is a numerical operation, therefore the vector variables of character and factor data types should not and do not produce means. However, the numerical and logical vector variables should and do generate means. Logical vectors are stores as 1 for "TRUE" and 0 for "FALSE", hence why they can be averaged numerically.
+Finding the mean is a numerical operation, therefore the vector variables of character and factor data types should not and do not produce means. However, the numerical and logical vector variables should and do generate means. Logical vectors are stored as 1 for "TRUE" and 0 for "FALSE", hence why they can be averaged numerically.
