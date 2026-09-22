@@ -62,7 +62,7 @@ vec_dt_df =
   tibble(
     vec_num = rnorm(n = 10),
     vec_log = vec_num > 0,
-    vec_char = c("This", "is","my", "first", "homework", "assignment", "for", "Data", "Science", "1"),
+    vec_char = c("This", "is","my", "first", "homework", "assignment", "for", "Data", "Science", "I"),
     vec_fact = factor(c("YES", "NO","MAYBE", "YES", "NO", "MAYBE", "YES", "NO", "MAYBE", "YES"))
   )
 
@@ -73,11 +73,34 @@ vec_dt_df
 
 ## Calculating Dataframe Vector Means
 
-* The vec_num mean is: `r mean(pull(vec_dt_df, vec_num))`. 
-* The vec_log mean is: `r mean(pull(vec_dt_df, vec_log))`.
-* The vec_char mean is: `r mean(pull(vec_dt_df, vec_char))`.
-* The vec_fact mean is: `r mean(pull(vec_dt_df, vec_fact))`.
+```  {r calculating_vec_means, message = F}
 
-## Explaining Mean Results
+mean_vec_num = mean(pull(vec_dt_df, vec_num))
+mean_vec_log = mean(pull(vec_dt_df, vec_log))
+mean_vec_char = mean(pull(vec_dt_df, vec_char))
+mean_vec_fact = mean(pull(vec_dt_df, vec_fact))
 
-Finding the mean is a numerical operation, therefore the vector variables of character and factor data types should not and do not produce means. However, the numerical and logical vector variables should and do generate means. Logical vectors are stored as 1 for "TRUE" and 0 for "FALSE", hence why they can be averaged numerically.
+mean_vec_num
+mean_vec_log
+mean_vec_char
+mean_vec_fact
+
+```
+
+## What Works? What Doesn't?
+
+The mean calculations worked for the numeric variable (`vec_num`) and the logical variable (`vec_log`).
+The mean calculations did not work for the character variable (`vec_char`) and the factor variable (`vec_fact`).
+
+## Applying `as.numeric`
+
+```  {r applying_as.numeric, results = hide, message = F}
+
+as.numeric(pull(vec_dt_df, vec_log))
+as.numeric(pull(vec_dt_df, vec_char))
+as.numeric(pull(vec_dt_df, vec_fact))
+
+```
+
+## Explaining `as.numeric` Results
+
