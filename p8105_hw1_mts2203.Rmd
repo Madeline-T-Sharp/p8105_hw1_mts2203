@@ -94,7 +94,7 @@ The mean calculations did not work for the character variable (`vec_char`) and t
 
 ## Applying `as.numeric`
 
-```  {r applying_as.numeric, results = hide, message = F}
+```  {r applying_asnumeric, results = hide, message = F}
 
 as.numeric(pull(vec_dt_df, vec_log))
 as.numeric(pull(vec_dt_df, vec_char))
