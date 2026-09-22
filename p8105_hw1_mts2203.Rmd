@@ -80,11 +80,6 @@ mean_vec_log = mean(pull(vec_dt_df, vec_log))
 mean_vec_char = mean(pull(vec_dt_df, vec_char))
 mean_vec_fact = mean(pull(vec_dt_df, vec_fact))
 
-mean_vec_num
-mean_vec_log
-mean_vec_char
-mean_vec_fact
-
 ```
 
 ## What Works? What Doesn't?
@@ -94,7 +89,7 @@ The mean calculations did not work for the character variable (`vec_char`) and t
 
 ## Applying `as.numeric`
 
-```  {r applying_as.numeric, results = hide, message = F}
+```  {r applying_as.numeric, results = "hide", message = F}
 
 as.numeric(pull(vec_dt_df, vec_log))
 as.numeric(pull(vec_dt_df, vec_char))
