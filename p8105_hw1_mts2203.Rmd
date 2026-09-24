@@ -22,20 +22,20 @@ library(tidyverse)
 ``` {r load_penguins, message = F}
 # loading penguins dataset from palmerpenguins package
 data("penguins", package = "palmerpenguins")
-
-# printing penguins dataset
-penguins
 ``` 
 
 ## Short Description
 
-The `palmerpenguin` dataset `penguins` presents a list of `r nrow(penguins)` penguins that are categorized by `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_ (grams)_g`, `sex` and `year`. The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. The penguin's mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
+The `palmerpenguin` dataset `penguins` presents a list of `r nrow(penguins)` penguins that are categorized by `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_ (grams)_g`, `sex` and `year`. The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. The penguin's mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`.
 
 ## Creating Scatterplot
 
 ``` {r penguins_problem, message = F}
 # defining scatterplot of flipper_length_mm vs. bill_length_mm using penguins data
-scatterplot_penguins = ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() 
+scatterplot_penguins = ggplot(data = penguins, aes(x = bill_length_mm, 
+                                                   y = flipper_length_mm, 
+                                                   color = species)) + 
+  geom_point() 
 
 # prining scatterplot
 scatterplot_penguins 
@@ -51,12 +51,16 @@ ggsave("scatterplot_penguins.pdf", height = 4, width = 6)
 
 ```  {r df_and_scatterplot_problem, message = F}
 # defining dataframe containing numeric, logical, character and factor vectors
+set.seed(7)
+
 vec_dt_df =
   tibble(
     vec_num = rnorm(n = 10),
     vec_log = vec_num > 0,
-    vec_char = c("This", "is","my", "first", "homework", "assignment", "for", "Data", "Science", "I"),
-    vec_fact = factor(c("YES", "NO","MAYBE", "YES", "NO", "MAYBE", "YES", "NO", "MAYBE", "YES"))
+    vec_char = c("This", "is","my", "first", "homework", "assignment", "for", 
+                 "Data", "Science", "I"),
+    vec_fact = factor(c("YES", "NO","MAYBE", "YES", "NO", "MAYBE", "YES", "NO", 
+                        "MAYBE", "YES"))
   )
 
 # printing dataframe containing numeric, logical, character and factor vectors
